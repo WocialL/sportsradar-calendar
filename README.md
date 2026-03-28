@@ -1,16 +1,49 @@
-# React + Vite
+# Sportradar Calendar - Frontend Coding Exercise
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
+This project is a responsive sports event calendar application developed as part of the Sportradar Coding Academy excercise. It allows users to browse scheduled and played sports events in a calendar view, check match statistics on a dedicated dashboard, and add new events to the application state during runtime.
 
-Currently, two official plugins are available:
+## Setup & Installation
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+To run this project locally on your machine, follow these steps:
 
-## React Compiler
+1. Clone the repository
+   git clone https://github.com/WocialL/sportsradar-calendar.git
+   cd sportsradar-calendar
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+2. Install dependencies:
+   Make sure you have Node.js installed, then run:
+   npm install
 
-## Expanding the ESLint configuration
+3. Start the development server:
+   npm run dev
+   The application will typically be available at `http://localhost:5173`.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Technology Stack
+* **Framework:** React 18 (with Vite for fast bundling)
+* **Language:** TypeScript
+* **Routing:** React Router v6
+* **Styling:** Tailwind CSS v4
+* **State Management:** React Context API
+
+## Architectural Decisions & Assumptions
+
+As requested in the exercise guidelines, here are the key technical decisions made during development:
+
+1. Vanilla JS Date Manipulation:
+I didn't use big libraries like date-fns or moment.js. Instead, I wrote the calendar logic (src/utils/dateUtils.ts) using the plain JavaScript Date object. This makes the app lighter and shows I know basic JavaScript.
+
+2. State Management (Context API):
+The task required adding new events without a real database. I used the React Context API (EventProvider) to load the mock JSON data when the app starts. Because the JSON didn't have IDs, the Context adds a UUID to each event. This is needed for React key props and React Router to work properly.
+
+3. Responsive Layout:
+To make the app responsive, the layout changes depending on the device:
+
+Mobile: It has a bottom navbar and shows a scrollable list of events instead of a grid, which is easier to read on small screens.
+
+Tablet: The grid columns are adjusted so the text fits well and doesn't break the layout.
+
+Desktop: It has a sidebar menu and a full-screen calendar grid using auto-rows-fr.
+
+4. Component Architecture:
+I kept the page components (like EventDetailPage and AddEventPage) in single files (around 200 lines of code) instead of splitting them into many small files. Since parts like the Scoreboard or form inputs are only used once, keeping them together makes the code easier to read and debug.
