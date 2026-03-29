@@ -1,0 +1,14 @@
+# AI Usage
+
+My personal rule is that I don't use AI to write the main logic or architecture. I want to show my actual skills and keep learning. Because of this, the React setup, Context API state management, and the JavaScript date calculations were all written completely by me.
+
+I only used AI as a helper for two specific things:
+
+### 1. iPad Layout (Tailwind CSS)
+I had an issue with the calendar grid layout on iPad Pro screens. I used AI to brainstorm which Tailwind breakpoint classes (`md:`, `xl:`) would work best to fix the spacing. After getting some ideas, I tested them myself in Chrome DevTools to see exactly how they behave before adding them to the code.
+
+### 2. Writing Code Comments
+After I finished writing the code, I used AI to help me format my thoughts into professional English JSDoc comments. I knew *what* I wanted to explain about my architectural choices (like using `useMemo`), and I used AI just to make the English sound natural and clean.
+
+---
+**Summary:** All the functional code, app logic, and component structures are 100% my own. I only used AI as a quick helper for CSS ideas and formatting my English comments.
